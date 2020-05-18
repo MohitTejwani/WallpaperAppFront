@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: "-apple-system, BlinkMacSystemFont, segoe ui, roboto, oxygen, cantarell, helvetica neue, ubuntu, sans-serif";
+    font-weight: 600;
+    line-height: 25px;
+    background-color: #f0f2ff !important;
+}
+*{
+    font-family: "-apple-system, BlinkMacSystemFont, segoe ui, roboto, oxygen, cantarell, helvetica neue, ubuntu, sans-serif";
+    font-weight: 600;
+    line-height: 25px;
+}

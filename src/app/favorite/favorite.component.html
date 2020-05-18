@@ -1,0 +1,36 @@
+<nav class="navbar">
+  <span class="navbar-toggle" id="js-navbar-toggle">
+    <i class="fas fa-bars"></i>
+  </span>
+  <a href="#" class="logo"><img src="../../assets/img/logo.png" alt="Logo" style="width:40px;"></a>
+  <ul class="main-nav">
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/favorite"> Favorite </a></li>
+  </ul>
+  <ul class="main-nav " id="js-menu">
+    <li class="dropdown dropdown-toggle">
+      <a href="#" data-toggle="dropdown"  class="nav-links"><img src="../../assets/img/logo.png" alt="Logo" style="width:40px;"> Hi {{username}}</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" (click)="logout()" >Log Out</a>
+      
+      </div>
+    </li>
+   
+  </ul>
+</nav>
+
+  <section>
+    <div class="container text-center">
+      <div class="row text-center">
+        <div class="col-lg-3 col-md-4 col-sm-12 image"  *ngFor="let wall of wallpaper; let i=index" >
+          <a (click)="delfavorite(wall._id)" > <img src="../../assets/img/dust.png"  class="bottom-right" style="width: 30px; height: 30px;min-height: 0;"   alt=""></a>
+          <img [src]="wall.imageurl"  alt="">
+        </div>
+ 
+      </div>
+    </div>
+  </section>
+
+  <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"></div>
+  <div class="spinner-border" *ngIf="isLoading"></div>

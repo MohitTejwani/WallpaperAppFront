@@ -1,0 +1,72 @@
+<section class="section">
+    <div class="container cover-box">
+        <div class="text-center">
+            <h1 class="title">Join Phoenix</h1>
+            <p class="sub-title">Discover thousands of photes you can use everywhere </p>
+            <img src="../../assets/img/logo.png"  class="img-fluid" alt="">
+        </div>
+        <form (ngSubmit)="login(allData.value)" #allData="ngForm" *ngIf="!flag">
+            <div class="form-group">
+                <input type="email" class="form-control" required placeholder="Enter email" id="email"  name="email" #email="ngModel" ngModel >
+                <div *ngIf="email.touched && !email.valid">
+                    <div *ngIf="email.errors.required" class="text-danger text-left" > Email Address should be required</div>
+                    <div *ngIf="email.errors.email" class="text-danger text-left" > Email Address should be required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Enter password" required  maxlength="16" id="password" name="password" #password="ngModel" ngModel>
+                <div *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required" class="text-danger text-left">
+                      password should be required
+                    </div>
+                    <div *ngIf="password.errors.maxlength" class="text-danger  text-left">
+                        password should be less than 16 characters
+                      </div>
+
+                  </div>
+            </div>
+            <div>
+                 <button class="btn btn-primary btn-block">Sign In</button>
+            </div>
+        </form>
+
+        <form  (ngSubmit)="register(allData.value)" #allData="ngForm" *ngIf="flag" >
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter name" id="name" required pattern="[A-Za-z]{0,26}" maxlength="26" name="name" #name="ngModel" ngModel>
+                <div *ngIf="name.touched && !name.valid">
+                    <div *ngIf="name.errors.required" class="text-danger text-left" > name  should be required</div>
+                    <div *ngIf="name.errors.pattern" class="text-danger text-left">name could not match</div>
+                    <div *ngIf="name.errors.maxlength" class="text-danger text-left">should be maximium 26 letters </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" required placeholder="Enter email" id="email"  name="email" #email="ngModel" ngModel >
+                <div *ngIf="email.touched && !email.valid">
+                    <div *ngIf="email.errors.required" class="text-danger text-left" > Email Address should be required</div>
+                    <div *ngIf="email.errors.email" class="text-danger text-left" > Email Address should be required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Enter password" required  maxlength="16" id="password" name="password" #password="ngModel" ngModel>
+                <div *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required" class="text-danger text-left">
+                      password should be required
+                    </div>
+                    <div *ngIf="password.errors.maxlength" class="text-danger  text-left">
+                        password should be less than 16 characters
+                      </div>
+
+                  </div>
+            </div>
+            <div>
+                 <button class="btn btn-success btn-block " >Sign Up</button>
+            </div>
+        </form>
+        <div class="text-center sign-up">
+            <button *ngIf="invalid" class="btn btn-danger btn-block"> Invalid Information </button>
+            <a  *ngIf="!flag" (click)="toggleSignIn()"> Sigin Up</a>
+            <a  *ngIf="flag" (click)="toggleSignIn()"> Sigin In</a>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>
